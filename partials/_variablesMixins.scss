@@ -1,0 +1,28 @@
+// mixins
+
+    // vertical + horizontal centering w/ flexbox
+    @mixin flexCenter() {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+//Responsive mixins
+
+@mixin small-tablet{
+    @media (max-width: 765px){
+        @content;
+    }
+}
+
+@mixin landscape-mobile {
+    @media (max-width: 575px){
+        @content;
+    }
+}
+
+@mixin mobile{
+    @media (max-width: 500px){
+        @content;
+    }
+}

@@ -1,0 +1,71 @@
+// GENERAL STYLES
+html{
+    font-size: 62.5%;
+}
+
+*{
+    box-sizing: border-box;
+    font-size: 2rem;
+    font-weight: 400;
+
+    @include landscape-mobile{
+        font-size: 1.5rem;
+    }
+
+    @include mobile {
+        font-size: 1.25rem;
+    }
+}
+
+.wrapper{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+body{
+    @include flexCenter;
+    flex-direction: column;
+    background-color: rgb(2, 2, 27);
+    padding-bottom: 15px;
+}
+
+section{
+    width: 100%;
+}
+
+main{
+    width: 735px;
+    background: rgb(65, 164, 86);
+    color: rgb(23, 36, 44);
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+
+    @include small-tablet{
+        width: 568px;
+    }
+
+    @include landscape-mobile{
+        width: 476px;
+    }
+
+    @include mobile{
+        width: 316px;
+        padding: 5px;
+    }
+}
+
+//input visibility hidden
+.visuallyHidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}

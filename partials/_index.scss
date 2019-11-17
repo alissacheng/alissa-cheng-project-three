@@ -1,0 +1,221 @@
+//Action buttons formatting
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+
+    button{
+        cursor: pointer; 
+        font-size: 2rem;
+        width: 150px;
+        background: rgb(255, 174, 0);
+        padding: 2px;
+        border-color: rgba(255, 174, 0, 0.85);
+        border-radius: 5px;
+        font-family: 'Coda', cursive;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: rgb(23, 36, 44);
+        transition: 0.4s;
+
+        @include landscape-mobile{
+            font-size: 1.5rem;
+            width: 120px;
+            margin-top: 2px;
+        }
+
+        @include mobile {
+            font-size: 1.5rem;
+            width: 70px;
+        }
+
+        &:hover,
+        &:focus{
+            background: rgb(253, 196, 73);
+            border-color: rgba(253, 196, 73, 0.85);
+        }
+    }
+}
+
+//format subtitle bar
+.sub-title{
+    display: flex;
+    justify-content: space-between;
+    @include small-tablet{
+        padding-top: 5px;
+    }
+}
+
+//Player 1 and 2
+.name{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    align-self: center;
+
+    @include landscape-mobile{
+        font-size: 1.5rem;
+    }
+}
+
+//Format money in bank for each player
+.display-money{
+    display: flex;
+    height: 5vh;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+    align-self: center;
+
+    h2{
+        margin-right: 10px;
+        font-size: 2rem;
+
+        @include landscape-mobile{
+            font-size: 1.5rem;
+        }
+
+        @include mobile {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+// Color and format cards when clicked, make visible
+.hand {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .clicked{
+        color: black;
+        background: white;
+
+        span{
+            color: red;
+        }
+    }
+}
+
+// Make first card visible already
+.hand > div:first-of-type{
+    color: black;
+    background: white;
+    cursor: default;
+    span{
+        color: red;
+    }
+}
+
+// Last card dosn't need a margin
+.hand > div:nth-of-type(6){
+    margin-right: 0;
+
+    @include landscape-mobile {
+        margin-right: 10px;
+    }
+
+    @include mobile{
+        margin-right: 5px;
+    }
+}
+
+//card formatting
+.hand > div {
+    cursor: pointer; 
+    margin-right: 10px;
+    border: 2px solid black;
+    width: 110px;
+    height: 152px;
+    background-image: url(../assets/card.png);
+    background-size: cover;
+    color: transparent;
+    border-radius: 5px;
+    font-family: 'Noto Sans', sans-serif;
+    transition: background 0.3s;
+    text-align: center;
+
+    @include small-tablet{
+        width: 82px;
+        height: 114px;
+        margin-top: 5px;
+    }
+
+    @include mobile {
+        width: 56px;
+        height: 77px;
+        margin-right: 5px;
+    }
+
+    &:nth-of-type(5){
+
+        @include landscape-mobile{
+            margin-right: 0;
+        }
+    }
+
+    p{
+        font-size: 2.5rem;
+        margin: 0;
+        padding-top: 10px;
+        text-align: center;
+        // word-spacing: 20px;
+
+        @include small-tablet {
+            padding-top: 5px;
+        }
+
+        @include mobile{
+            font-size: 1.75rem;
+            // word-spacing: 10px;
+        }
+    }
+
+
+    h2{
+        text-align: center;
+        font-size: 7.5rem;
+        margin: 0;
+
+        @include small-tablet{
+            font-size: 6rem;
+        }
+
+        @include mobile{
+            font-size: 4rem;
+        }
+
+        span{
+            text-align: center;
+            font-size: 7.5rem;
+            margin: 0;
+            color: transparent;
+
+            @include small-tablet{
+                font-size: 6rem;
+            }
+
+            @include mobile{
+                font-size: 4rem;
+            }
+        }
+    }
+
+    span{
+        font-size: 3rem;
+        color: transparent;
+
+        @include mobile{
+            font-size: 1.75rem;
+            word-spacing: 10px;
+        }
+    }
+}
+
+//position rank and suit of each card in top row
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    @include landscape-mobile{
+        padding: 0 5px;
+    }
+}
