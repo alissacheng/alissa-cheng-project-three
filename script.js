@@ -71,7 +71,7 @@ gameApp.dealCards = function (){
 };
 
 //Hit Me Button
-$(".hit-me").on("click", gameApp.hitMe = function(){
+$(".hitMe").on("click", gameApp.hitMe = function(){
     gameApp.hitMe();
 })
 
@@ -207,7 +207,7 @@ gameApp.displayCards = function (){
                 <h2><span>${playerOneHand[i].suit}</span></h2>
             </div>`
         }
-        $(".player-one .hand").append(card);
+        $(".playerOne .hand").append(card);
     };
 //player two
     for(i=0; i<playerTwoHand.length; i++){
@@ -229,18 +229,18 @@ gameApp.displayCards = function (){
                 <h2><span>${playerTwoHand[i].suit}</span></h2>
             </div>`
         }
-        $(".player-two .hand").append(card);
+        $(".playerTwo .hand").append(card);
     }
 };
 
-//click cards to show
-$(".player-one .hand").on("click", "div", gameApp.revealCard = function(){
+//When player's turn click cards to show
+$(".playerOne .hand").on("click", "div", gameApp.revealCard = function(){
     if(currentPlayer === 0){
         $(this).toggleClass("clicked");
     }
 });
 
-$(".player-two .hand").on("click", "div", gameApp.revealCard = function(){
+$(".playerTwo .hand").on("click", "div", gameApp.revealCard = function(){
     if(currentPlayer === 1){
         $(this).toggleClass("clicked");
     }
@@ -250,12 +250,12 @@ gameApp.displayMoney = function() {
 //player one
     for(i=0; i<playerOneHand.length; i++){
         let money = `<div><p>$ ${players[0].money}</p></div>`
-        $(".player-one .money").html(money);
+        $(".playerOne .money").html(money);
     };
 //player two
     for(i=0; i<playerTwoHand.length; i++){
         let money = `<div><p>$ ${players[1].money}</p></div>`
-        $(".player-two .money").html(money);
+        $(".playerTwo .money").html(money);
     };
 
     gameApp.moneyCheck();
@@ -265,19 +265,34 @@ gameApp.displayMoney = function() {
 gameApp.moneyCheck = function (){
 
     for(i=0; i<players.length;i++){
-        if(players[i].money === 0){
-            alert(`${players[i].name} owes $40!!!`);
-            $(".new-round").attr("disabled", true);
+        if(players[i].money <= 0){
+            $(".instructions").dialog();
+            $(".instructions p").text(`${players[i].name}, looks like you're out $20 today!`);
+            $(".newRound").attr("disabled", true);
+            $("html").css("overflow", "hidden");
         };
     };
-};
+};;
 
-//game over disables hit me and stay buttons
+//Game over disables hit me and stay buttons
 gameApp.gameOver = function () {
-    $(".hit-me").attr("disabled", true);
+    $(".hitMe").attr("disabled", true);
     $(".stay").attr("disabled", true);
 }
 
+//Next Round Button
+$(".newRound").on("click", gameApp.newRound = function(){
+    players[0].hand.length = 0;
+    players[1].hand.length = 0;
+    deck.length = 0;
+    currentPlayer = 0;
+    $(".hitMe").attr("disabled", false);
+    $(".stay").attr("disabled", false);
+    $(".banner").text("Player One Goes First");
+    gameApp.init();
+})
+
+//Start Game or Round
 gameApp.init = function (){
     gameApp.newDeck();
     gameApp.shuffleDeck();
@@ -285,17 +300,39 @@ gameApp.init = function (){
     gameApp.displayMoney();
 };
 
-$(".new-round").on("click", gameApp.newRound = function(){
-    players[0].hand.length = 0;
-    players[1].hand.length = 0;
-    deck.length = 0;
-    currentPlayer = 0;
-    $(".hit-me").attr("disabled", false);
-    $(".stay").attr("disabled", false);
-    $(".banner").text("Player One Goes First");
-    gameApp.init();
-})
+//New Game Pop Up Instructions
+gameApp.instructions = function(){
 
+    $("html").css("overflow", "hidden");
+
+    $(".instructions").dialog({
+        width: $("body").width()-20,
+        dialogClass: "no-close",
+        position: { my: "center top", at: "top", of: "main" },
+        buttons: [
+            {   
+                text: "New Game",
+                click: gameApp.newGame = function() {
+                    $(this).dialog("close");
+                    $("html").css("overflow", "initial")
+                    $(".hitMe").attr("disabled", false);
+                    $(".stay").attr("disabled", false);
+                    $(".newRound").attr("disabled", false);
+                    players[0].hand.length = 0;
+                    players[0].money = 20;
+                    players[1].hand.length = 0;
+                    players[1].money = 20; 
+                    deck.length = 0;
+                    currentPlayer = 0;
+                    gameApp.init();
+                    $(".banner").text("Player One Goes First");
+                }
+            }
+        ]
+    });    
+}
+
+//Start Game
 $(function() {
-    gameApp.init();
+    gameApp.instructions();
 });

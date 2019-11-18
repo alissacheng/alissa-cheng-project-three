@@ -196,18 +196,10 @@ html {
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-size: 2rem;
   font-weight: 400; }
-  @media (max-width: 575px) {
-    * {
-      font-size: 1.5rem; } }
-  @media (max-width: 500px) {
-    * {
-      font-size: 1.25rem; } }
 
 .wrapper {
-  max-width: 1200px;
-  width: 100%;
+  max-width: 735px;
   margin: 0 auto; }
 
 body {
@@ -227,9 +219,6 @@ body {
   background-color: #02021b;
   padding-bottom: 15px; }
 
-section {
-  width: 100%; }
-
 main {
   width: 735px;
   background: #41a456;
@@ -248,31 +237,17 @@ main {
       width: 316px;
       padding: 5px; } }
 
-.visuallyHidden:not(:focus):not(:active) {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden; }
-
 h1 {
   font-family: 'Calistoga', cursive;
   font-size: 8rem;
   color: #c6e2ff;
-  -webkit-animation: neon 0.8s infinite ease-in-out alternate;
-  animation: neon 0.8s infinite ease-in-out alternate;
+  -webkit-animation: neon .08s ease-in-out infinite alternate;
+  animation: neon .08s ease-in-out infinite alternate;
   text-transform: uppercase;
   margin: 0;
   padding-bottom: 10px;
   text-align: center;
-  letter-spacing: 1.15rem;
-  text-rendering: optimizeLegibility; }
+  letter-spacing: 1.15rem; }
   @media (max-width: 765px) {
     h1 {
       font-size: 6rem; } }
@@ -377,7 +352,7 @@ header {
       background: #fdc449;
       border-color: rgba(253, 196, 73, 0.85); }
 
-.sub-title {
+.subTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -385,7 +360,7 @@ header {
   -ms-flex-pack: justify;
   justify-content: space-between; }
   @media (max-width: 765px) {
-    .sub-title {
+    .subTitle {
       padding-top: 5px; } }
 
 .name {
@@ -397,8 +372,11 @@ header {
   @media (max-width: 575px) {
     .name {
       font-size: 1.5rem; } }
+  @media (max-width: 500px) {
+    .name {
+      font-size: 1.25rem; } }
 
-.display-money {
+.displayMoney {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -409,14 +387,22 @@ header {
   font-family: 'Press Start 2P', cursive;
   -ms-flex-item-align: center;
   align-self: center; }
-  .display-money h2 {
+  .displayMoney h2 {
     margin-right: 10px;
     font-size: 2rem; }
     @media (max-width: 575px) {
-      .display-money h2 {
+      .displayMoney h2 {
         font-size: 1.5rem; } }
     @media (max-width: 500px) {
-      .display-money h2 {
+      .displayMoney h2 {
+        font-size: 1.25rem; } }
+  .displayMoney .money {
+    font-size: 2rem; }
+    @media (max-width: 575px) {
+      .displayMoney .money {
+        font-size: 1.5rem; } }
+    @media (max-width: 500px) {
+      .displayMoney .money {
         font-size: 1.25rem; } }
 
 .hand {
@@ -526,3 +512,55 @@ header {
   @media (max-width: 575px) {
     .container {
       padding: 0 5px; } }
+
+.instructions {
+  background: #02021b;
+  font-family: 'Coda', cursive;
+  color: white;
+  line-height: 1.5;
+  font-size: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  @media (max-width: 765px) {
+    .instructions {
+      font-size: 2.5rem; } }
+  .instructions p {
+    margin: 50px 0; }
+
+.ui-dialog-titlebar {
+  background: #02021b; }
+
+.no-close .ui-dialog-titlebar-close {
+  display: none; }
+
+.ui-dialog-buttons {
+  background-color: #02021b;
+  text-align: center;
+  padding-bottom: 30px; }
+
+.ui-dialog-buttonset > button {
+  cursor: pointer;
+  font-size: 3rem;
+  width: 200px;
+  background: #ffae00;
+  padding: 2px;
+  border-color: rgba(255, 174, 0, 0.85);
+  border-radius: 5px;
+  font-family: 'Coda', cursive;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  margin-bottom: 30px; }
+  .ui-dialog-buttonset > button:hover, .ui-dialog-buttonset > button:focus {
+    background: #fdc449;
+    border-color: rgba(253, 196, 73, 0.85); }

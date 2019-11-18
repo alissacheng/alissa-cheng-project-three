@@ -9,13 +9,13 @@
 
 //Responsive mixins
 
-@mixin small-tablet{
+@mixin smallTablet{
     @media (max-width: 765px){
         @content;
     }
 }
 
-@mixin landscape-mobile {
+@mixin landscapeMobile {
     @media (max-width: 575px){
         @content;
     }
