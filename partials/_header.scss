@@ -34,15 +34,15 @@ h1{
     }
 
         &::after{
-            content: " ♠";
-            font-size: 10rem;
+            content: "K ♠";
+            font-size: 8rem;
 
             @include smallTablet {
-                font-size: 8rem;
+                font-size: 6rem;
             }
 
             @include mobile {
-                font-size: 5rem;
+                font-size: 4rem;
             }
     }
 }

@@ -269,14 +269,14 @@ h1 {
     h1 {
       font-size: 4rem; } }
   h1::after {
-    content: " ♠";
-    font-size: 10rem; }
+    content: "K ♠";
+    font-size: 8rem; }
     @media (max-width: 765px) {
       h1::after {
-        font-size: 8rem; } }
+        font-size: 6rem; } }
     @media (max-width: 500px) {
       h1::after {
-        font-size: 5rem; } }
+        font-size: 4rem; } }
 
 header {
   width: 735px; }
