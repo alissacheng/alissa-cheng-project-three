@@ -237,18 +237,8 @@ main {
       width: 316px;
       padding: 5px; } }
 
-@font-face {
-  font-family: 'Calistoga';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../assets/calistoga-v1-latin-regular.ttf);
-  src: url(../assets/calistoga-v1-latin-regular.eot);
-  src: url(../assets/calistoga-v1-latin-regular.svg);
-  src: url(../assets/calistoga-v1-latin-regular.woff2);
-  src: url(../assets/calistoga-v1-latin-regular.woff); }
-
 h1 {
-  font-family: 'Calistoga';
+  font-family: 'Calistoga', cursive;
   font-size: 8rem;
   color: #c6e2ff;
   -webkit-animation: neon .08s ease-in-out infinite alternate;

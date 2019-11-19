@@ -1,0 +1,106 @@
+h1{
+    font-family: 'Calistoga', cursive;
+    font-size: 8rem;
+    color: #c6e2ff;
+    animation: neon .08s ease-in-out infinite alternate;
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: center;
+    letter-spacing: 1.15rem;
+    text-rendering: geometricPrecision;
+
+    @include smallTablet{
+        font-size: 6rem;
+    }
+
+    @include landscapeMobile{
+        letter-spacing: initial;
+    }
+
+    @include mobile {
+        font-size: 4rem;
+    }
+
+        &::after{
+            content: "K ♠";
+            font-size: 8rem;
+
+            @include smallTablet {
+                font-size: 6rem;
+            }
+
+            @include mobile {
+                font-size: 4rem;
+            }
+    }
+}
+
+header{
+    width: 735px;
+
+    @include smallTablet{
+        width: 568px;
+    }
+
+    @include landscapeMobile{
+        width: 476px;
+    }
+
+    @include mobile {
+        width: 316px;
+    }
+}
+
+@keyframes neon {
+    from {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.92),
+        0 0 30px rgba(202,228,225,0.34),
+        0 0 12px rgba(30,132,242,0.52),
+        0 0 21px rgba(30,132,242,0.92),
+        0 0 34px rgba(30,132,242,0.78),
+        0 0 54px rgba(30,132,242,0.92);
+    }
+    to {
+        text-shadow:
+        0 0 6px rgba(202,228,225,0.98),
+        0 0 30px rgba(202,228,225,0.42),
+        0 0 12px rgba(30,132,242,0.58),
+        0 0 22px rgba(30,132,242,0.84),
+        0 0 38px rgba(30,132,242,0.88),
+        0 0 60px rgba(30,132,242,1);
+    }
+}
+
+//Banner narrating events of game
+.banner{
+    font-family: 'Coda', cursive;
+    font-size: 3rem;
+    margin: 0;
+    width: 735px;
+    padding-left: 10px;
+    padding-bottom: 2.5px;
+    padding-top: 2.5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+
+    &::before{
+        content: "> ";
+    }
+
+    @include smallTablet{
+        width: 568px;
+    }
+
+    @include landscapeMobile{
+        width: 476px;
+        font-size: 2.75rem;
+    }
+
+    @include mobile{
+        width: 316px;
+        font-size: 2.55rem;
+    }
+}
