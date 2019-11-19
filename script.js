@@ -278,6 +278,7 @@ gameApp.moneyCheck = function (){
 gameApp.gameOver = function () {
     $(".hitMe").attr("disabled", true);
     $(".stay").attr("disabled", true);
+    $(".newRound").attr("disabled", false);
 }
 
 //Next Round Button
@@ -288,6 +289,7 @@ $(".newRound").on("click", gameApp.newRound = function(){
     currentPlayer = 0;
     $(".hitMe").attr("disabled", false);
     $(".stay").attr("disabled", false);
+    $(".newRound").attr("disabled", true);
     $(".banner").text("Player One Goes First");
     gameApp.init();
 })
@@ -317,7 +319,6 @@ gameApp.instructions = function(){
                     $("html").css("overflow", "initial")
                     $(".hitMe").attr("disabled", false);
                     $(".stay").attr("disabled", false);
-                    $(".newRound").attr("disabled", false);
                     players[0].hand.length = 0;
                     players[0].money = 20;
                     players[1].hand.length = 0;
