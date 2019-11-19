@@ -239,6 +239,8 @@ main {
 
 @font-face {
   font-family: 'Calistoga';
+  font-style: normal;
+  font-weight: 400;
   src: url(../assets/calistoga-v1-latin-regular.ttf);
   src: url(../assets/calistoga-v1-latin-regular.eot);
   src: url(../assets/calistoga-v1-latin-regular.svg);
